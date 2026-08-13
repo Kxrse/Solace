@@ -1,0 +1,37 @@
+{
+  "monitor": {
+    "plugin_directory": "C:\\Solace\\Plugins",
+    "server_directory": "C:\\Solace\\Server",
+    "steamcmd_path": "C:\\Solace\\SteamCMD\\steamcmd.exe",
+    "app_id": "2430930",
+    "poll_seconds": 300,
+    "steamcmd_timeout_seconds": 1800,
+    "rescan_on_source_change": true
+  },
+  "cache": {
+    "cdn_url": "https://cdn.pelayori.com/cache/",
+    "devapi_header_directory": "C:\\Solace\\DevAPI\\AsaApi\\Core\\Public\\API",
+    "work_directory": "C:\\Solace\\Work",
+    "archive_directory": "C:\\Solace\\Archive",
+    "max_archive_builds": 30,
+    "context_idle_seconds": 600
+  },
+  "report": {
+    "webhook_username": "Solace",
+    "webhook_avatar_url": "",
+    "attach_full_report": true,
+    "report_directory": "C:\\Solace\\Reports"
+  },
+  "webhooks": [
+    {
+      "name": "alerts",
+      "url": "https://discord.com/api/webhooks/000000000000000000/token",
+      "verdicts": [ "clean", "drift", "broken" ],
+      "mention": ""
+    }
+  ],
+  "logging": {
+    "level": "info",
+    "max_log_files": 10
+  }
+}

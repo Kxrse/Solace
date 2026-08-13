@@ -1,0 +1,7 @@
+﻿Logs/
+Work/
+Archive/
+Reports/
+Server/
+__pycache__/
+*.pyc
