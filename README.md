@@ -225,4 +225,4 @@ This is the stripped down version. The full Solace bot does per user uploads, sy
 
 ## License
 
-Kxrse ASA Plugins Non-Commercial License. Use it, change it, share it, credit me. No selling it.
+MIT
