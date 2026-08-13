@@ -30,7 +30,6 @@ STATE_FLAGS_PATTERN = re.compile(r'"StateFlags"\s*"(\d+)"')
 
 # Cache format is little endian, 8 byte name length then the name then the value
 # Offsets get an 8 byte address and bitfields get a 32 byte trailer
-MAX_SYMBOL_LEN = 4096
 BITFIELD_TRAILER = 32
 SOURCE_EXTENSIONS = (".cpp",)
 STEAMCMD_READY_FLAGS = "4"
@@ -379,7 +378,7 @@ def load_offsets(cache_path):
     while index + 8 <= total:
         name_len = int.from_bytes(data[index:index + 8], "little")
         index += 8
-        if name_len == 0 or name_len > MAX_SYMBOL_LEN or index + name_len + 8 > total:
+        if name_len == 0 or index + name_len + 8 > total:
             raise ValueError(f"unexpected offsets format at byte {index - 8}")
         name = data[index:index + name_len].decode("ascii", "replace")
         index += name_len
@@ -399,7 +398,7 @@ def load_bitfields(cache_path):
     while index + 8 <= total:
         name_len = int.from_bytes(data[index:index + 8], "little")
         index += 8
-        if name_len == 0 or name_len > MAX_SYMBOL_LEN or index + name_len + BITFIELD_TRAILER > total:
+        if name_len == 0 or index + name_len + BITFIELD_TRAILER > total:
             raise ValueError(f"unexpected bitfield format at byte {index - 8}")
         name = data[index:index + name_len].decode("ascii", "replace")
         index += name_len
